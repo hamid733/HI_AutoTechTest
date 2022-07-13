@@ -512,7 +512,7 @@ testRunner.When("I send the request to the json api with the optional parameters
                         "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 79
-testRunner.Then("the new word \'neww_ord\' should be added and replaced by \'fill_text\' value \'|repla" +
+testRunner.Then("the new word \'new_word\' should be added and replaced by \'fill_text\' value \'|repla" +
                         "ce_word|\' in the input text \'new_word is some test input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

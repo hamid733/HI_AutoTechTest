@@ -76,7 +76,7 @@ Examples:
 Scenario: Verify user can add/replace words to the profanity list using optional parameters
 Given the PurgoMalum api service is up and running
 When I send the request to the json api with the optional parameters add and fill_text
-Then the new word 'neww_ord' should be added and replaced by 'fill_text' value '|replace_word|' in the input text 'new_word is some test input' 
+Then the new word 'new_word' should be added and replaced by 'fill_text' value '|replace_word|' in the input text 'new_word is some test input' 
 
 @json @optional_parameters
 Scenario: Verify user can add and replace profanity words with a single character using optional parameter  
