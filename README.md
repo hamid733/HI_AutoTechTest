@@ -10,7 +10,7 @@ This is a PurgoMalum api services Functional/Regression Test Suite based on the 
 ###### NuGet
 
 
-![Alt text](/blob/master/Image1.jpg?raw=true "NuGet Packages")
+![Alt text](https://github.com/hamid733/HI_ZooplaTechTest/blob/6ff8088f0010c5ab2edd0ef4dd626bea98c43e7b/Image1.jpg?raw=true "NuGet Packages")
 
 
 ## Usage
