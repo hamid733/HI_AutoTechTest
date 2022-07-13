@@ -238,7 +238,7 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the profanity results based on the input text")]
+        [NUnit.Framework.DescriptionAttribute("Verify the profanity api results based on the input text")]
         [NUnit.Framework.CategoryAttribute("profanity")]
         [NUnit.Framework.TestCaseAttribute("this is some test input bollox", "true", null)]
         [NUnit.Framework.TestCaseAttribute("this is some test input shit", "true", null)]
@@ -253,7 +253,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestCaseAttribute("madam", "false", null)]
         [NUnit.Framework.TestCaseAttribute("mr", "false", null)]
         [NUnit.Framework.TestCaseAttribute("mrs", "false", null)]
-        public virtual void VerifyTheProfanityResultsBasedOnTheInputText(string input, string result, string[] exampleTags)
+        public virtual void VerifyTheProfanityApiResultsBasedOnTheInputText(string input, string result, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "profanity"};
@@ -265,7 +265,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("input", input);
             argumentsOfScenario.Add("result", result);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the profanity results based on the input text", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the profanity api results based on the input text", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -464,6 +464,104 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 64
  testRunner.Then(string.Format("the response should filter the profanity {0} from the input text as {1}", words, result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify user can add/replace words to the profanity list using optional parameters" +
+            "")]
+        [NUnit.Framework.CategoryAttribute("json")]
+        [NUnit.Framework.CategoryAttribute("optional_parameters")]
+        [NUnit.Framework.CategoryAttribute("potential_bug")]
+        public virtual void VerifyUserCanAddReplaceWordsToTheProfanityListUsingOptionalParameters()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "json",
+                    "optional_parameters",
+                    "potential_bug"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify user can add/replace words to the profanity list using optional parameters" +
+                    "", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 76
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 77
+testRunner.Given("the PurgoMalum api service is up and running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 78
+testRunner.When("I send the request to the json api with the optional parameters add and fill_text" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 79
+testRunner.Then("the new word \'neww_ord\' should be added and replaced by \'fill_text\' value \'|repla" +
+                        "ce_word|\' in the input text \'new_word is some test input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify user can add and replace profanity words with a single character using opt" +
+            "ional parameter")]
+        [NUnit.Framework.CategoryAttribute("json")]
+        [NUnit.Framework.CategoryAttribute("optional_parameters")]
+        public virtual void VerifyUserCanAddAndReplaceProfanityWordsWithASingleCharacterUsingOptionalParameter()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "json",
+                    "optional_parameters"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify user can add and replace profanity words with a single character using opt" +
+                    "ional parameter", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 82
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 83
+testRunner.Given("the PurgoMalum api service is up and running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 84
+testRunner.When("I send the request to the json api with the optional parameters add and fill_char" +
+                        "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 85
+testRunner.Then("the new word \'newword\' should be added and replaced by \'fill_char\' value \'~\' in t" +
+                        "he input text \'newword is some test input\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

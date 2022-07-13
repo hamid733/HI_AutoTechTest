@@ -91,15 +91,44 @@ namespace HI_TechTest_BDD.StepDefinitions
         public void check_filter_words(string input, string result)
         {
             var comm = new Common();
-            //var actual_result = comm.check_api_result(input, "json");
             var actual_result = comm.get_api_result_only(input, "json");
-            //var expected_text = input.Split(' ');
-            //int count = expected_text[2].Length;
-            //string ex = new string('*', count);
             string expected = result;
             Assert.That(actual_result, Is.EqualTo(expected), "Unexpected response text");
         }
 
+        [Given(@"the PurgoMalum api service is up and running")]
+        public void GivenThePurgoMalumApiServiceIsUpAndRunning()
+        {
+            GivenISendTheGetRequestToTheApi("json");
+        }
+
+        [When(@"I send the request to the json api with the optional parameters add and fill_char")]
+        [When(@"I send the request to the json api with the optional parameters add and fill_text")]
+        public void WhenISendTheRequestToTheJsonApiWithTheOptionalParametersAddAndFill_Text()
+        {
+            
+        }
+
+        [Then(@"the new word '([^']*)' should be added and replaced by '([^']*)' value '([^']*)' in the input text '([^']*)'")]
+        public void ThenTheNewWordShouldBeAddedAndReplacedByInTheInputText(string new_word, string opt_prmtr,string replacement,string input_text)
+        {
+           var comm=new Common();
+           var actual_processed_input = comm.check_optional_parameters(new_word, replacement, input_text, opt_prmtr);
+           string expected_text = null;
+           //var allowed_chars = new List<char> {'=', '_', '-', '|', '~' };
+           if (opt_prmtr == "fill_char")
+            {
+                char rep_char = char.Parse(replacement);
+                string expected_word = new string(rep_char, new_word.Length);
+                expected_text = input_text.Replace(new_word, expected_word);
+            }
+                       
+            else
+                expected_text = input_text.Replace(new_word, replacement);
+                
+           Assert.That(actual_processed_input, Is.EqualTo(expected_text), "Unexpected response text");
+
+        }
 
     }
 }

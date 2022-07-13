@@ -80,5 +80,38 @@ namespace HI_TechTest_BDD.Support
             var rs = json_result["result"].ToString();
             return rs;
         }
+
+        internal object check_optional_parameters(string new_word, string replacement, string input_text, string opt_prmtr)
+        {
+            string rs = null;
+            var options = new RestClientOptions("https://www.purgomalum.com/service/json")
+            {
+                ThrowOnAnyError = true,
+                MaxTimeout = 3000
+            };
+            try
+            {
+                var client = new RestClient(options);
+                var request = new RestRequest()
+                    .AddQueryParameter("text", input_text)
+                    .AddQueryParameter("add", new_word)
+                    .AddQueryParameter(opt_prmtr, replacement);
+
+                request.AddHeader("Accept", "*/*");
+                var response = client.Execute(request);
+                var json_result = JObject.Parse(response.Content);
+                rs = json_result["result"].ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("{0} error: Invalid Characters in User Black List.", ex.InnerException);
+            }
+            return rs;
+
+
+
+        }
     }
 }

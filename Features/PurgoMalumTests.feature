@@ -23,7 +23,7 @@ Scenario: Verify PurgoMalum plain api status
 	Then the status code should be success
 
 @profanity
-Scenario Outline: Verify the profanity results based on the input text
+Scenario Outline: Verify the profanity api results based on the input text
 	Given the Profanity api is up and running
 	When I call the profanity api
 	Then the response should be <result> against the <input>
@@ -72,6 +72,17 @@ Examples:
 | panooch                  | *******                 |
 | skank                    | *****                   |
 
+@json @optional_parameters @potential_bug
+Scenario: Verify user can add/replace words to the profanity list using optional parameters
+Given the PurgoMalum api service is up and running
+When I send the request to the json api with the optional parameters add and fill_text
+Then the new word 'neww_ord' should be added and replaced by 'fill_text' value '|replace_word|' in the input text 'new_word is some test input' 
+
+@json @optional_parameters
+Scenario: Verify user can add and replace profanity words with a single character using optional parameter  
+Given the PurgoMalum api service is up and running
+When I send the request to the json api with the optional parameters add and fill_char
+Then the new word 'newword' should be added and replaced by 'fill_char' value '~' in the input text 'newword is some test input'
 
 
 
