@@ -1,7 +1,7 @@
 # Hometrack QA Task
 ## BDD SpecFlow-C# Test Automation Framework 
 ###### Project Name
-HI_TechTest_BDD
+<sub>HI_TechTest_BDD</sub>
 This is a PurgoMalum api services Functional/Regression Test Suite based on the available specification https://www.purgomalum.com
 ## Installation
 Microsoft Visual Studio Professional 2022
@@ -14,4 +14,4 @@ Installed Version: Professional
 ###### NuGet
 
 
-![Alt text](/HI_TechTest/Image1.jpg?raw=true "NuGet Packages")
+![Alt text](/HI_TechTest_BDD/Image1.jpg?raw=true "NuGet Packages")
