@@ -15,6 +15,7 @@ HI_TechTest_BDD <br>
 
 
 ## Usage
+- Clone the code from the github project repo hamid733/HI_ZooplaTechTest master branch (repository link shared via email)
 - Build Solution 
 - Open Test Explorer from the top toolbar Test>Test Explorer
 - Click Run All button or choose any single Test to run
