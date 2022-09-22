@@ -3,8 +3,9 @@ using RestSharp;
 using System.Text.Json;
 namespace HI_TechTest_BDD.Support
 {
-    internal class Common
+    public class Common
     {
+        public Common() { }
         public string Call_ApiAsync(string method)
         {
             var options = new RestClientOptions("https://www.purgomalum.com/service/" + method)
@@ -26,6 +27,7 @@ namespace HI_TechTest_BDD.Support
 
         }
 
+       
         internal string check_profanity_result(string word)
         {
 
@@ -107,11 +109,13 @@ namespace HI_TechTest_BDD.Support
             {
 
                 Console.WriteLine("{0} error: Invalid Characters in User Black List.", ex.InnerException);
+                //throw new Exception(ex.Message);
             }
             return rs;
 
 
-
         }
+
+       
     }
 }

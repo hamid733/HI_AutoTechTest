@@ -9,11 +9,12 @@ namespace HI_TechTest_BDD.StepDefinitions
     [Binding]
     public class PurgoMalumFUnctionalTestsStepDefinitions
     {
+        Common comm = new Common();
+
         [Given(@"I send the get request to the '([^']*)' api")]
 
         public void GivenISendTheGetRequestToTheApi(string method)
         {
-            var comm = new Common();
             var status = comm.Call_ApiAsync(method);
             Assert.That(status, Is.EqualTo("200"));
         }
@@ -36,7 +37,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the response should be (.*) against the (.*)")]
         public void GivenICallTheProfanityApiWithTheInput(string result, string word)
         {
-            var comm = new Common();
             var response=comm.check_profanity_result(word);
             Assert.That(response, Is.EqualTo(result));
         }
@@ -50,7 +50,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the response should be processed input text '([^']*)' as XML")]
         public void ThenTheResponseShouldBeProcessedInputTextAsXML(string text)
         {
-            var comm = new Common();
             var results = comm.check_api_result(text,"xml");
             Assert.That(results, Does.Contain("<?xml version="), "Unexpected Response");
             Assert.That(results, Does.Contain("<result>"+text+"</result>"), "Unexpected Response");
@@ -65,7 +64,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the response should be processed input text '([^']*)' as json")]
         public void ThenTheResponseShouldBeProcessedInputTextAsJson(string text)
         {
-            var comm = new Common();
             var results = comm.check_api_result(text, "json");
             string expected = "{" + "\"result\"" + ":" + "\"" + text + "\"" + "}";
 
@@ -80,7 +78,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the response should be processed input text '([^']*)' as plain")]
         public void ThenTheResponseShouldBeProcessedInputTextAsPlain(string text)
         {
-            var comm = new Common();
             var results = comm.check_api_result(text, "plain");
             string expected = text;
 
@@ -90,7 +87,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the response should filter the profanity (.*) from the input text as (.*)")]
         public void check_filter_words(string input, string result)
         {
-            var comm = new Common();
             var actual_result = comm.get_api_result_only(input, "json");
             string expected = result;
             Assert.That(actual_result, Is.EqualTo(expected), "Unexpected response text");
@@ -112,7 +108,6 @@ namespace HI_TechTest_BDD.StepDefinitions
         [Then(@"the new word '([^']*)' should be added and replaced by '([^']*)' value '([^']*)' in the input text '([^']*)'")]
         public void ThenTheNewWordShouldBeAddedAndReplacedByInTheInputText(string new_word, string opt_prmtr,string replacement,string input_text)
         {
-           var comm=new Common();
            var actual_processed_input = comm.check_optional_parameters(new_word, replacement, input_text, opt_prmtr);
            string expected_text = null;
            //var allowed_chars = new List<char> {'=', '_', '-', '|', '~' };
