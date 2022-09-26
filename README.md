@@ -1,4 +1,4 @@
-# Hometrack QA Task
+# Sample QA Task
 ## BDD SpecFlow-C# Test Automation Framework 
 ###### Project Name
 HI_TechTest_BDD <br>
